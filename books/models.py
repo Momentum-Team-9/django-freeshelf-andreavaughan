@@ -13,7 +13,7 @@ class User(AbstractUser):
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    slug = models.SlugField(blank=True)
+    slug = models.SlugField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.name}'
@@ -22,11 +22,11 @@ class Category(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
+    description = models.TextField(null="", blank=True)
     url = models.URLField()
     created_at = models.DateField(auto_now_add=True)
-    categories = models.ManyToManyField(Category, related_name='categories')
-    cover_image = models.URLField(blank=True)
+    categories = models.ManyToManyField(Category, related_name='categories', null=True)
+    cover_image = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.title}, {self.author}'
