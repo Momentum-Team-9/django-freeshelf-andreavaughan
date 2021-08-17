@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Books</h1>
+
+<div>
+    {% for book in books %}
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-4by3">
+                <img src="">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <h2>{{ book.title }}</h2>
+                <p>{{ book.author }}</p>
+                <p>{{ book.description }}</p>
+            </div>
+        </div>
+        <footer class="card-footer">
+            
+        </footer>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
