@@ -10,7 +10,8 @@
 </head>
 <body class="body">
     <nav>
-        <p>FreeShelf</p>
+        <p><a href="{% url 'home' %}">FreeShelf</a></p>
+        <p><a href="{% url 'list_books' %}">All Books</a></p>
     </nav>
         <div class="content">
         {% block content %}

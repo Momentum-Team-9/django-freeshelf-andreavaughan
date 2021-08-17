@@ -26,7 +26,6 @@ urlpatterns = [
     path('books/<int:pk>', books_views.view_book, name='view_book'),
     path('books/<int:pk>/edit', books_views.edit_book, name='edit_book'), 
     path('books/<int:pk>/delete', books_views.delete_book, name='delete_book'),
-
 ]
 
 if settings.DEBUG:

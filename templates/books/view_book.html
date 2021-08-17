@@ -9,4 +9,9 @@
     {{ book.description }}
 </div>
 
+<div>
+    <a href="{% url 'edit_book' pk=book.pk %}" class="">Edit Book</a>
+    <a href="{% url 'delete_book' pk=book.pk %}" class="">Delete Book</a>
+</div>
+
 {% endblock %}
