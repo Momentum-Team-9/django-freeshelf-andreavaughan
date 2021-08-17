@@ -26,7 +26,7 @@ class Book(models.Model):
     description = models.TextField(null="", blank=True)
     url = models.URLField()
     created_at = models.DateField(auto_now_add=True)
-    categories = models.ManyToManyField(Category, related_name='categories')
+    categories = models.ManyToManyField(Category, related_name='category')
     cover_image = models.URLField(null=True, blank=True)
 
     def __str__(self):

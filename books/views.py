@@ -45,8 +45,30 @@ def view_book(request, pk):
 
 
 def edit_book(request, pk):
-    pass
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == 'GET':
+        form = BookForm(instance=book)
+    else: 
+        form = BookForm(data=request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect(to='list_books')
+
+    return render(
+        request,
+        'books/edit_book.html',
+        {'form': form, 'book': book}
+    )
 
 
 def delete_book(request, pk):
-    pass
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == 'POST':
+        book.delete()
+        return redirect(to='list_books')
+
+    return render(
+        request,
+        'books/delete_book.html',
+        {'book': book}
+    )
