@@ -36,7 +36,12 @@ def add_book(request):
 
 
 def view_book(request, pk):
-    pass
+    book = get_object_or_404(Book, pk=pk)
+    return render(
+        request,
+        'books/view_book.html',
+        {'book': book}
+    )
 
 
 def edit_book(request, pk):
