@@ -6,7 +6,7 @@ from .forms import BookForm
 def load_home(request):
     return render(
         request,
-        'base.html'
+        'books/home.html'
     )
 
 
