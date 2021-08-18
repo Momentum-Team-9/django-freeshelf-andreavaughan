@@ -16,9 +16,9 @@
                 <h2>{{ book.title }}</h2>
                 <p>{{ book.author }}</p>
                 <p>{{ book.description }}</p>
-                {% for category in book.categories.all %}
-                    <p>Categories: {{ category.name }}</p>
-                {% endfor %}
+                <p>Categories: {% for category in book.categories.all %}
+                    <a href="{% url 'view_category' category.slug %}">{{ category.name }}</a>
+                {% endfor %}</p>
             </div>
         </div>
         <footer class="card-footer">

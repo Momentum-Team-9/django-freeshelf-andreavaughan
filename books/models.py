@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields.related import ManyToManyField
+from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -20,6 +21,9 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        return reverse('view_category', kwargs={'slug': self.slug}) 
 
 
 class Book(models.Model):

@@ -12,6 +12,7 @@ def load_home(request):
 
 def list_books(request):
     books = Book.objects.all()
+    categories = Category.objects.all()
     return render(
         request, 
         'books/list_books.html',
@@ -75,4 +76,10 @@ def delete_book(request, pk):
 
 
 def view_category(request, slug):
-    pass
+    category = get_object_or_404(Category, slug=slug)
+    books = Book.objects.all()
+    return render(
+        request,
+        'books/view_category.html',
+        {'category': category, 'books': books}
+    )
