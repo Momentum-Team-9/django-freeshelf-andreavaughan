@@ -72,3 +72,7 @@ def delete_book(request, pk):
         'books/delete_book.html',
         {'book': book}
     )
+
+
+def view_category(request, slug):
+    pass
