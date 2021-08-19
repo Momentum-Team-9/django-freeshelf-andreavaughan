@@ -100,3 +100,7 @@ def view_category(request, slug):
             request,
             'books/home.html'
         )
+
+
+def view_favorites(request):
+    pass

@@ -28,6 +28,7 @@ urlpatterns = [
     path('books/<int:pk>/edit', books_views.edit_book, name='edit_book'), 
     path('books/<int:pk>/delete', books_views.delete_book, name='delete_book'),
     path('categories/<slug:slug>', books_views.view_category, name='view_category'),
+    path('books/favorites', books_views.view_favorites, name='view_favorites'),
 ]
 
 if settings.DEBUG:

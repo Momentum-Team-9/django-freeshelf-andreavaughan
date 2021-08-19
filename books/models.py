@@ -34,6 +34,8 @@ class Book(models.Model):
     created_at = models.DateField(auto_now_add=True)
     categories = models.ManyToManyField(Category, related_name='category')
     cover_image = models.URLField(null=True, blank=True)
+    favorite = models.BooleanField(default=False)
+    favorited_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.title}, {self.author}'
