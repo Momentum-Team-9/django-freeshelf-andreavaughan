@@ -7,6 +7,12 @@
     {{ book.author }}
     <br>
     {{ book.description }}
+    {{ book.url }}
+</div>
+
+<button onclick="renderFavedIcon()">Favorite Book</button>
+<div id="favorite-bar" style="display:none;">
+    <i class="fas fa-heart"></i><p>Favorited</p>
 </div>
 
 <div>

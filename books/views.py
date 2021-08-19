@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.admin import ModelAdmin
 from .models import User, Category, Book
 from .forms import BookForm
 
@@ -39,7 +40,6 @@ def add_book(request):
         'books/add_book.html',
         {'form': form}
     )
-
 
 def view_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
