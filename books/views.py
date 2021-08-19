@@ -12,12 +12,17 @@ def load_home(request):
 
 def list_books(request):
     books = Book.objects.all()
-    categories = Category.objects.all()
-    return render(
-        request, 
-        'books/list_books.html',
-        {'books': books}
-    )
+    if request.user.is_authenticated:
+        return render(
+            request, 
+            'books/list_books.html',
+            {'books': books}
+        )
+    else:
+        return render(
+            request,
+            'books/home.html'
+        )
 
 
 def add_book(request):
@@ -38,11 +43,17 @@ def add_book(request):
 
 def view_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    return render(
-        request,
-        'books/view_book.html',
-        {'book': book}
-    )
+    if request.user.is_authenticated:
+        return render(
+            request,
+            'books/view_book.html',
+            {'book': book}
+        )
+    else:
+        return render(
+            request,
+            'books/home.html'
+        )
 
 
 def edit_book(request, pk):
@@ -78,8 +89,14 @@ def delete_book(request, pk):
 def view_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     books = Book.objects.all()
-    return render(
-        request,
-        'books/view_category.html',
-        {'category': category, 'books': books}
-    )
+    if request.user.is_authenticated:
+        return render(
+            request,
+            'books/view_category.html',
+            {'category': category, 'books': books}
+        )
+    else:
+        return render(
+            request,
+            'books/home.html'
+        )
